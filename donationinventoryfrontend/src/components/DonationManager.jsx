@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import config from "../config"; // import config.js
 
+// =======================
+// Donation Service (inside same file)
+// =======================
 async function handleResponse(res) {
   if (res.status === 204) return null; // DELETE returns 204
   if (!res.ok) {
