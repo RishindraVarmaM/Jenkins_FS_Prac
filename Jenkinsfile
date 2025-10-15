@@ -21,7 +21,7 @@ pipeline {
         stage('Deploy Frontend to Tomcat') {
             steps {
                 sh '''
-                TOMCAT_PATH="/Users/rishi/apache-tomcat-9.0.110/webapps/donationfrontend"
+                TOMCAT_PATH="/Users/rishi/apache-tomcat-10/webapps/donationfrontend"
 
                 if [ -d "$TOMCAT_PATH" ]; then
                     rm -rf "$TOMCAT_PATH"
@@ -46,12 +46,18 @@ pipeline {
         stage('Deploy Backend to Tomcat') {
             steps {
                 sh '''
-                TOMCAT_WEBAPPS="/Users/rishi/apache-tomcat-9.0.110/webapps"
+                TOMCAT_WEBAPPS="/Users/rishi/apache-tomcat-10/webapps"
 
+                # Remove old WAR and exploded folder
                 rm -f "$TOMCAT_WEBAPPS/donationbackend.war"
                 rm -rf "$TOMCAT_WEBAPPS/donationbackend"
 
-                cp donationinventorybackend/target/*.war "$TOMCAT_WEBAPPS"
+                # Copy new WAR
+                cp donationinventorybackend/target/*.war "$TOMCAT_WEBAPPS/"
+
+                # Restart Tomcat
+                /Users/rishi/apache-tomcat-10/bin/shutdown.sh
+                /Users/rishi/apache-tomcat-10/bin/startup.sh
                 '''
             }
         }
