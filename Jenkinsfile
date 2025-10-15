@@ -1,0 +1,65 @@
+pipeline {
+    agent any
+
+    stages {
+
+        // ===== FRONTEND BUILD =====
+        stage('Build Frontend') {
+            steps {
+                dir('donationinventoryfrontend') {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        // ===== FRONTEND DEPLOY =====
+        stage('Deploy Frontend to Tomcat') {
+            steps {
+                sh '''
+                TOMCAT_PATH="/Users/rishi/apache-tomcat-9.0.110/webapps/donationfrontend"
+
+                if [ -d "$TOMCAT_PATH" ]; then
+                    rm -rf "$TOMCAT_PATH"
+                fi
+
+                mkdir "$TOMCAT_PATH"
+                cp -R donationinventoryfrontend/dist/* "$TOMCAT_PATH"
+                '''
+            }
+        }
+
+        // ===== BACKEND BUILD =====
+        stage('Build Backend') {
+            steps {
+                dir('donationinventorybackend') {
+                    sh 'mvn clean package -DskipTests'
+                }
+            }
+        }
+
+        // ===== BACKEND DEPLOY =====
+        stage('Deploy Backend to Tomcat') {
+            steps {
+                sh '''
+                TOMCAT_WEBAPPS="/Users/rishi/apache-tomcat-9.0.110/webapps"
+
+                rm -f "$TOMCAT_WEBAPPS/donationbackend.war"
+                rm -rf "$TOMCAT_WEBAPPS/donationbackend"
+
+                cp donationinventorybackend/target/*.war "$TOMCAT_WEBAPPS"
+                '''
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo 'Deployment Successful!'
+        }
+        failure {
+            echo 'Pipeline Failed.'
+        }
+    }
+}

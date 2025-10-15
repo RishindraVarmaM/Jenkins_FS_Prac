@@ -56,7 +56,7 @@ export default function DonationManager() {
 
   return (
     <div className="app-container">
-      <h1>Donation Inventory Tracker</h1>
+      <h1>Donation Tracker</h1>
 
       <form onSubmit={handleAddOrUpdate} className="donation-form">
         <select name="category" value={form.category} onChange={handleChange} required>

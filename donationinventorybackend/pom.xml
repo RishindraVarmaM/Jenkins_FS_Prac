@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>donationinventorybackend</name>
 	<description>Donation Inventory Backend Deployment</description>
+	<packaging>war</packaging>
 	<url/>
 	<licenses>
 		<license/>
@@ -27,7 +28,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -58,6 +59,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>donationbackend</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
