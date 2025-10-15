@@ -162,3 +162,9 @@
 2025-10-15 18:44:06,963 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
 2025-10-15 18:44:06,970 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
 2025-10-15 18:44:06,973 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/rishi/Desktop/prac_projects/jenkins_fullstack/donation-inventory/donationinventorybackend/src/test/resources
+2025-10-15 19:22:51,741 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-10-15 19:22:51,745 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-10-15 19:22:51,747 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/rishi/Desktop/prac_projects/jenkins_fullstack/donation-inventory/donationinventorybackend/src/test/resources
+2025-10-15 19:22:55,137 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-10-15 19:22:55,141 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-10-15 19:22:55,143 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/rishi/Desktop/prac_projects/jenkins_fullstack/donation-inventory/donationinventorybackend/src/test/resources
